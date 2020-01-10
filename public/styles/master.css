@@ -1,3 +1,6 @@
 #navbar {
   user-select: none;
 }
+#header {
+  user-select: none;
+}
