@@ -5,9 +5,11 @@ require('./lib/project')
 require('pry')
 require("pg")
 
+DB = PG.connect({:dbname => 'volunteer_tracker'})
+
 # /
 get('/') do
-  erb(:main)
+  redirect to ('/projects')
 end
 #projects
 
