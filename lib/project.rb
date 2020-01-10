@@ -13,7 +13,7 @@ class Project
     projects = []
     returned_projects.each() do |project|
       title = project.fetch("title")
-      id = project.fetch("id")
+      id = project.fetch("id").to_i
       projects.push(Project.new({:title => title, :id => id}))
     end
     return projects
@@ -36,14 +36,14 @@ class Project
   def self.find(id)
     project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
     title = project.fetch("title")
-    id = project.fetch("id")
+    id = project.fetch("id").to_i
     Project.new({:title => title, :id => id})
   end
 
   def self.search(name)
     project = DB.exec("SELECT * FROM projects WHERE name = '#{name}'").first
     title = project.fetch("title")
-    id = project.fetch("id")
+    id = project.fetch("id").to_i
     Project.new({:title => title, :id => id})
   end
 
