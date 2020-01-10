@@ -3,6 +3,7 @@ require "project"
 require "rspec"
 require "pry"
 require "pg"
+require "capybara"
 
 DB = PG.connect({:dbname => 'volunteer_tracker_test'})
 
