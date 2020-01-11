@@ -23,9 +23,8 @@
 </div> <!-- class= card-group -->
 <div class="card">
   <div class="card-body">
-    <form action="/projects/<%=@project.id()%>" method="post">
+    <form action="/projects/<%=@project.id%>" method="post">
       <input type="hidden" title="_method" value="delete">
-
       <button type="submit">Delete Project</button>
     </form>
     <p><a href="projects/<%= @project.id() %>">Return to Project</a></p>
