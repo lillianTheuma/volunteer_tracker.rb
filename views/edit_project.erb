@@ -1,0 +1,33 @@
+<h1 class="jumbotron">Update <%= @project.title()%></h1>
+
+<div class="card-group">
+  <div class="card">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+      <form action="projects/<%= @project.id %>" method="post">
+        <input type="hidden" title="_method" value="patch">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <label for="title">Retitle Project</label>
+            <input type="text" title="title" id="title">
+          </li>
+          <li class="list-group-item">
+            <button type="submit">Update Project</button>
+          </li>
+        </ul>
+      </form>
+    </div> <!-- class = card-body -->
+  </div> <!-- class = card -->
+</div> <!-- class= card-group -->
+<div class="card">
+  <div class="card-body">
+    <form action="/projects/<%= @project.id() %>" method="post">
+      <input type="hidden" title="_method" value="delete">
+
+      <button type="submit">Delete Project</button>
+    </form>
+    <p><a href="projects/<%= @project.id() %>">Return to Project</a></p>
+  </div> <!-- class = card-body -->
+</div> <!-- class = card -->
