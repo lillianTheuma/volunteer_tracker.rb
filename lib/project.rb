@@ -70,15 +70,6 @@ class Project
     return results
   end
 
-  def is_available
-    project = DB.exec("SELECT * FROM checkouts WHERE project_id = #{@id}")
-    if project != nil
-      return true
-    else
-      return false
-    end
-  end
-
   def update(attributes)
     @title = attributes.fetch(:title)
     DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
