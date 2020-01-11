@@ -3,22 +3,47 @@
     <div class="card">
       <div class="card-header">
         <h4 class="card-text">
+          <%= @project.title %>
         </h4><!-- class = card-text -->
       </div><!-- class = card-header -->
       <div class="card-body">
 
       </div><!-- class = card-body -->
+      <div class="card-footer">
+
+      </div><!-- class = card-footer -->
     </div><!-- class = card -->
   </div><!-- class = col-md-8 -->
   <div class="col-4">
     <div class="card">
       <div class="card-header">
         <h4 class="card-text">
-          
+          Volunteers
         </h4><!-- class = card-text -->
       </div><!-- class = card-header -->
       <div class="card-body">
-
+        <ul class="list-group list-group-flush">
+          <% @volunteers.sort_by(&:id).each do |volunteer| %>
+          <li class="list-group-item nav-item"><a class="nav-link" href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></li>
+          <% end %>
+        </ul>
+      </div><!-- class = card-body -->
+    </div><!-- class = card -->
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-text">
+          Sign Up to Volunteer
+        </h4><!-- class = card-text -->
+      </div><!-- class = card-header -->
+      <div class="card-body">
+        <form action="/projects/<%= @project.id %>/volunteers" method="post">
+          <div class="form-group">
+            <input id="id" name="id" type="hidden" value=1>
+            <label for="name">Name</label>
+            <input id="name" name="name" class="form-control" type="text">
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+        </form>
       </div><!-- class = card-body -->
     </div><!-- class = card -->
   </div><!-- class = col-md-4 -->
