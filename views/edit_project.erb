@@ -6,12 +6,12 @@
 
     </div>
     <div class="card-body">
-      <form action="projects/<%= @project.id %>" method="post">
-        <input type="hidden" title="_method" value="patch">
+      <form action="/projects/<%=@project.id%>" method="post">
+        <input type="hidden" value="patch" title="_method">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <label for="title">Retitle Project</label>
-            <input type="text" title="title" id="title">
+            <input type="text" name="title" id="title">
           </li>
           <li class="list-group-item">
             <button type="submit">Update Project</button>
@@ -23,7 +23,7 @@
 </div> <!-- class= card-group -->
 <div class="card">
   <div class="card-body">
-    <form action="/projects/<%= @project.id() %>" method="post">
+    <form action="/projects/<%=@project.id()%>" method="post">
       <input type="hidden" title="_method" value="delete">
 
       <button type="submit">Delete Project</button>

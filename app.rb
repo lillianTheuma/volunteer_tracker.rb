@@ -30,7 +30,7 @@ post('/projects') do
   redirect to ('/projects')
 end
 
-patch('/projects/:id') do
+post('/projects/:id') do
   @project = Project.find(params[:id].to_i())
   @project.update(:title => params[:title])
   @projects = Project.all
@@ -56,10 +56,6 @@ delete('/projects/:id') do
   @project.delete()
   @projects = Project.all
   redirect to ("/projects/:id")
-end
-
-get('/projects/:id/volunteers') do
-
 end
 
 post('/projects/:project_id/volunteers') do
